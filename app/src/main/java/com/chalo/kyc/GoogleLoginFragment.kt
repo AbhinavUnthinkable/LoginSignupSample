@@ -10,18 +10,19 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.chalo.kyc.databinding.FragmentLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.Scopes
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
+import com.google.android.gms.common.api.Scope
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class GoogleLoginFragment : Fragment() {
 
-    lateinit var googleApiClient: GoogleApiClient
+    lateinit var googleApiClient: GoogleSignInClient
     private var _binding: FragmentLoginBinding? = null
 
     private val binding get() = _binding!!
@@ -31,7 +32,7 @@ class GoogleLoginFragment : Fragment() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
             try {
                 val account = task.getResult(ApiException::class.java)
-                fireBaseAuthWithGoogle(account)
+                val authCode = account.serverAuthCode
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -52,22 +53,16 @@ class GoogleLoginFragment : Fragment() {
          }
     }
 
-    private fun fireBaseAuthWithGoogle(account: GoogleSignInAccount) {
-        val mAuth = FirebaseAuth.getInstance()
-        val authCredential = GoogleAuthProvider.getCredential(account.idToken, null)
-        mAuth.signInWithCredential(authCredential)
-            .addOnSuccessListener {
-                Toast.makeText(requireActivity(),"login successful",Toast.LENGTH_LONG).show()
-            }
-    }
+
 
     private fun signInGoogle() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id_))
+            .requestScopes(Scope(Scopes.PROFILE))
             .requestEmail()
             .build()
         val googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-        googleApiClient = googleSignInClient.asGoogleApiClient()
+        googleApiClient = googleSignInClient
         googleSignInCallback.launch(googleSignInClient.signInIntent)
     }
 
