@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.chalo.kyc.R
 import com.chalo.kyc.databinding.FragmentLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -33,6 +34,7 @@ class GoogleLoginFragment : Fragment() {
             try {
                 val account = task.getResult(ApiException::class.java)
                 val authCode = account.serverAuthCode
+                println(authCode)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -57,7 +59,7 @@ class GoogleLoginFragment : Fragment() {
 
     private fun signInGoogle() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id_))
+            .requestServerAuthCode(getString(R.string.default_web_client_id_))
             .requestScopes(Scope(Scopes.PROFILE))
             .requestEmail()
             .build()
