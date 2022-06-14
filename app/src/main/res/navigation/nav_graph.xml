@@ -10,19 +10,5 @@
         android:name="com.chalo.kyc.GoogleLoginFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_login"/>
-    <fragment
-        android:id="@+id/mobileLoginFragment"
-        android:name="com.chalo.kyc.MobileLoginFragment"
-        android:label="MobileLoginFragment" >
-        <action
-            android:id="@+id/action_mobileLoginFragment_to_verifyFragment"
-            app:destination="@id/verifyFragment" />
-        <argument
-            android:name="verification_id"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/verifyFragment"
-        android:name="com.chalo.kyc.VerifyFragment"
-        android:label="VerifyFragment" />
+
 </navigation>
