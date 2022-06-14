@@ -1,4 +1,4 @@
-package com.chalo.kyc.loginsignupsample
+package com.chalo.kyc
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

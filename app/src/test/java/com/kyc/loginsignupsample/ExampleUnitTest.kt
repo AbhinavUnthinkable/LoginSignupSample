@@ -1,4 +1,4 @@
-package com.chalo.kyc.loginsignupsample
+package com.kyc.loginsignupsample
 
 import org.junit.Test
 
