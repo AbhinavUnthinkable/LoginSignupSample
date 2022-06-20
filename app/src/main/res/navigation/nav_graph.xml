@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.chalo.kyc.GoogleLoginFragment"
+        android:name="com.chalo.kycc.GoogleLoginFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_login"/>
 

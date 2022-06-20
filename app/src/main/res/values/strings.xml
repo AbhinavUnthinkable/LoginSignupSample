@@ -6,10 +6,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-<!--    <string name="default_web_client_id_" translatable="false">"631286963633-8qt7clhvrnq4a5086d4emb7ij0bkidc9.apps.googleusercontent.com"</string>-->
+    <string name="default_web_client_id_" translatable="false">"563614726380-jm1uqgjb3gkcn3vnmsvg9am3j64jsdii.apps.googleusercontent.com"</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
    //com.chalo.kyc
-    <string name="default_web_client_id_" translatable="false">631286963633-8qt7clhvrnq4a5086d4emb7ij0bkidc9.apps.googleusercontent.com</string>
+<!--    <string name="default_web_client_id_" translatable="false">631286963633-8qt7clhvrnq4a5086d4emb7ij0bkidc9.apps.googleusercontent.com</string>-->
 
 </resources>

@@ -2,7 +2,7 @@ package com.chalo.kyc
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.chalo.kyc.databinding.ActivityMainBinding
+import com.chalo.kycc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
