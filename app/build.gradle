@@ -5,14 +5,26 @@ plugins {
 
 android {
     compileSdk 32
-
+    signingConfigs {
+        debug {
+            storeFile file('sample.jks')
+            storePassword 'sample'
+            keyAlias 'sample'
+            keyPassword 'sample'
+        }
+        release {
+            storeFile file('sample.jks')
+            storePassword 'sample'
+            keyAlias 'key'
+            keyPassword 'sample'
+        }
+    }
     defaultConfig {
         applicationId "com.chalo.kycc"
         minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
